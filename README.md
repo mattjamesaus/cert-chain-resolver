@@ -70,6 +70,13 @@ A server should always send a complete chain, which means concatenated all certi
 
 You should be able to fetch intermediate certificates from the issuer and concat them together by yourself, this script helps you automatize it by looping over certificate's AIA extension field.
 
+## Docker Version
+For those that don't have go installed there's a docker version that can be built as well, the following instructions will allow you to build a docker container mount the cert directory and create the full chain.
+### Build Docker Image
+docker build . -t cert-chain-resolver:latest
+### Run Docker Image
+docker run -v `pwd`:/certs cert-chain-resolver:latest -o /certs/domain.bundle.pem /certs/dominain.pem
+
 ### Other implementations
 
 * [deprecated shell script](https://github.com/zakjan/cert-chain-resolver/tree/shell) (shell)
@@ -81,3 +88,4 @@ You should be able to fetch intermediate certificates from the issuer and concat
 The MIT License (MIT). See [LICENCE](LICENCE) file for more information. [TL;DR](https://tldrlegal.com/license/mit-license)
 
 If you use my code in some interesting project, I'd be happy to know about it.
+
