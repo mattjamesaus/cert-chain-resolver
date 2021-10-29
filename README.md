@@ -73,10 +73,13 @@ You should be able to fetch intermediate certificates from the issuer and concat
 ## Docker Version
 For those that don't have go installed there's a docker version that can be built as well, the following instructions will allow you to build a docker container mount the cert directory and create the full chain.
 ### Build Docker Image
+```
 docker build . -t cert-chain-resolver:latest
+```
 ### Run Docker Image
+```
 docker run -v `pwd`:/certs cert-chain-resolver:latest -o /certs/domain.bundle.pem /certs/dominain.pem
-
+```
 ### Other implementations
 
 * [deprecated shell script](https://github.com/zakjan/cert-chain-resolver/tree/shell) (shell)
